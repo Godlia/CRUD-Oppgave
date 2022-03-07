@@ -61,7 +61,7 @@
 
     <form action="posts/read.php" method="POST">
         <input type="text" name="table">
-        <input type="submit" value="">
+        <input type="submit" value="Read from table">
     </form>
 
 
@@ -74,8 +74,6 @@
     }
 
 
-    $query = "SELECT * FROM `gaming`;";
-    $result = $conn->query($query);
 
     ?>
 
