@@ -15,7 +15,7 @@
     $password = '';
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password);
+    $conn = new mysqli($servername, $username, $password, 'crud');
 
     // Check connection
     if ($conn->connect_error) {
@@ -27,7 +27,7 @@
 
     ?>
 
-    <form action="" method="get">
+    <form action="$conn->query('CREATE TABLE id int, $_POST['name'] varchar(255)');"  method="POST">
         <label for="name">create table with the name: </label><input type="text" name="name">
         <input type="hidden" value="create">
         <input type="submit" value="Submit">
@@ -49,13 +49,12 @@
     </form>
 
     <?php
-    $query = "SELECT * FROM crud";
+    $query = "SELECT * FROM `gaming`;";
     $result = $conn->query($query);
-    echo $query . $result;
     if ($result->num_rows > 0) {
         // output data of each row
         while ($row = $result->fetch_assoc()) {
-            echo "id: " . $row["id"] . "name: " . $row["name"] .  "<br>";
+            echo "id: " . $row["id"] . " name: " . $row["name"] .  "<br>";
         }
     } else {
         echo "0 results";
