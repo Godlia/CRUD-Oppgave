@@ -16,7 +16,8 @@ if ($conn->connect_error) {
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = "UPDATE " . $_POST['name'] . " SET name = '" . $_POST['text'] . "' WHERE id = " . $_POST['id'];
+$sql = "INSERT INTO " . $_POST['name'] . " VALUES (id, '" . $_POST['text'] . "')";
+echo $sql;
 $result = $conn->query($sql);
 if ($result) {
     echo "Table created successfully";

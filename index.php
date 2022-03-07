@@ -27,8 +27,9 @@
 
     ?>
 
-    <form action="posts/create.php"  method="POST">
-        <label for="name">create table with the name: </label><input type="text" name="name">
+    <form action="posts/create.php" method="POST">
+        <label for="name">create table with the name: </label>
+            <input type="text" name="name">
         <input type="hidden" value="create">
         <input type="submit" value="Submit">
     </form>
@@ -39,39 +40,46 @@
     </form>
     <form action="posts/insert.php" method="POST">
         <label for="name">insert into table with the name: </label><input type="text" name="name">
+        <label for="text">text: </label><input type="text" name="text">
         <input type="hidden" value="insert">
         <input type="submit" value="Submit">
     </form>
     <form action="posts/update.php" method="POST">
         <label for="name">update table with the name: </label><input type="text" name="name">
+        <label for="id">id: </label><input type="text" name="id">
+        <label for="text">text: </label><input type="text" name="text">
         <input type="hidden" value="update">
         <input type="submit" value="Submit">
     </form>
+    <br><br>
+
+
+
+    <form action=""><input type="submit" value="Show all tables"></form>
+
+
+
+    <form action="posts/read.php" method="POST">
+        <input type="text" name="table">
+        <input type="submit" value="">
+    </form>
+
+
 
     <?php
+
+    $result = $conn->query("show tables"); // run the query and assign the result to $result
+    while ($table = mysqli_fetch_array($result)) { // go through each row that was returned in $result
+        echo ($table[0] . "<BR>");    // print the table that was returned on that row.
+    }
+
+
     $query = "SELECT * FROM `gaming`;";
     $result = $conn->query($query);
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo "id: " . $row["id"] . " name: " . $row["name"] .  "<br>";
-        }
-    } else {
-        echo "0 results";
-    }
 
     ?>
 
 
-
-
-    <?php
-    if (isset($_GET['name'])) {
-        $sql = $_GET['name'];
-        $result = $conn->query($sql);
-        echo $result;
-    }
-    ?>
 </body>
 
 </html>
