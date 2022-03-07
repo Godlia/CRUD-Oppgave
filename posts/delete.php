@@ -15,10 +15,10 @@ if ($conn->connect_error) {
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = "DELETE TABLE ". $_POST['name'];
+$sql = "DROP TABLE ". $_POST['name'];
 $result = $conn->query($sql);
 if ($result) {
-    echo "Table created successfully";
+    echo "Table deleted successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }

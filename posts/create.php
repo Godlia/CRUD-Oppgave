@@ -11,7 +11,7 @@ $conn = new mysqli($servername, $username, $password, $db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = "CREATE TABLE id int,". $_POST['name'] . "varchar(255)";
+$sql = "CREATE TABLE " . $_POST['name'] . "( id int, text varchar(255))";
 $result = $conn->query($sql);
 if ($result) {
     echo "Table created successfully";

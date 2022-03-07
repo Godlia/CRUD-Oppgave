@@ -27,22 +27,22 @@
 
     ?>
 
-    <form action="$conn->query('CREATE TABLE id int, $_POST['name'] varchar(255)');"  method="POST">
+    <form action="posts/create.php"  method="POST">
         <label for="name">create table with the name: </label><input type="text" name="name">
         <input type="hidden" value="create">
         <input type="submit" value="Submit">
     </form>
-    <form action="" method="get">
+    <form action="posts/delete.php" method="POST">
         <label for="name">delete table with the name: </label><input type="text" name="name">
         <input type="hidden" value="delete">
         <input type="submit" value="Submit">
     </form>
-    <form action="" method="get">
+    <form action="posts/insert.php" method="POST">
         <label for="name">insert into table with the name: </label><input type="text" name="name">
         <input type="hidden" value="insert">
         <input type="submit" value="Submit">
     </form>
-    <form action="" method="get">
+    <form action="posts/update.php" method="POST">
         <label for="name">update table with the name: </label><input type="text" name="name">
         <input type="hidden" value="update">
         <input type="submit" value="Submit">
